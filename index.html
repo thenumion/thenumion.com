@@ -432,7 +432,6 @@ class Component extends DCLogic {
     this.loadAllVideos();
     this.products.forEach(p => { const im = new Image(); im.src = p.hover; });
   }
-  blobCache = {};
   loadVideo(v) {
     const url = v && v.getAttribute('data-src');
     if (!url || v.dataset.loaded) return Promise.resolve();
@@ -449,7 +448,6 @@ class Component extends DCLogic {
   }
   safePlay(v) { if (!v) return; v.muted = true; const r = v.play && v.play(); if (r && r.catch) r.catch(() => {}); }
   playScene(i) {
-    if (this.state.cut2) this.setState({ cut2: false });
     this.heroScenes.forEach((s, j) => { const v = s.ref.current; if (!v) return; if (j === i) { try { v.currentTime = 0; } catch (e) {} this.safePlay(v); } else { v.pause(); } });
     this.setState({ scene: i, progress: 0, zoomKey: i });
     clearTimeout(this.sceneTimer);
@@ -457,10 +455,10 @@ class Component extends DCLogic {
     this.sceneTimer = setTimeout(() => { if (this.state.scene === i && this.state.progress === 0) this.playScene((i + 1) % this.heroScenes.length); }, 11000);
   }
   heroScenes = [
-    { n: '01', label: 'THE AWAKENING SERUM', mpos: '66% 50%', video: 'hero-product-1080.mp4', poster: 'hero-product.jpg', ref: React.createRef() },
-    { n: '02', label: 'ÉVEIL · THE SERUM', mpos: '70% 50%', video: 'hero-serum2-1080.mp4', poster: 'hero-serum2-v2.jpg', ref: React.createRef() },
-    { n: '03', label: 'AUBE · THE CLEANSE', mpos: '61% 50%', video: 'hero-foam-1080.mp4', poster: 'hero-foam-v2.jpg', ref: React.createRef() },
-    { n: '04', label: 'THE MORNING RITUAL', mpos: '74% 50%', video: 'hero-serum3-1080.mp4', poster: 'hero-serum3-v2.jpg', ref: React.createRef() }
+    { n: '01', label: 'THE AWAKENING SERUM', mpos: '66% 50%', video: 'hero-product-7s.mp4', poster: 'hero-product.jpg', ref: React.createRef() },
+    { n: '02', label: 'ÉVEIL · THE SERUM', mpos: '70% 50%', video: 'hero-serum2-7s.mp4', poster: 'hero-serum2-v2.jpg', ref: React.createRef() },
+    { n: '03', label: 'AUBE · THE CLEANSE', mpos: '61% 50%', video: 'hero-foam-7s.mp4', poster: 'hero-foam-7s.jpg', ref: React.createRef() },
+    { n: '04', label: 'THE MORNING RITUAL', mpos: '72% 50%', video: 'hero-window-6s.mp4', poster: 'hero-window-6s.jpg', ref: React.createRef() }
   ];
   observeCards() {
     if (!('IntersectionObserver' in window)) return;
@@ -559,15 +557,15 @@ class Component extends DCLogic {
         const prog = on ? (st.progress || 0) : ((st.scene || 0) > i ? 1 : 0);
         return {
           ...s,
-          pos: mobile ? (s.cut && st.cut2 ? s.cut.mpos : s.mpos) : '70% 50%',
-          bg: s.cut ? '#F2F1EE' : 'transparent',
+          pos: mobile ? s.mpos : '70% 50%',
+          bg: 'transparent',
           opacity: on ? 1 : 0,
           fade: (s.sub || (this.heroScenes[i + 1] && this.heroScenes[i + 1].sub && (st.scene || 0) === i + 1)) ? '.25s' : '1.6s',
-          scale: (!mobile && s.cut && st.cut2) ? 'translateX(' + s.cut.shift + ')' : 'none',
+          scale: 'none',
           progress: 'scaleX(' + prog + ')',
           labelOpacity: on ? 1 : .55,
           go: () => this.playScene(i),
-          onTime: e => { if ((this.state.scene || 0) !== i) return; const v = e.target; if (s.cut) { const c2 = v.currentTime >= s.cut.at; if (c2 !== !!this.state.cut2) this.setState({ cut2: c2 }); } const len = s.end || v.duration; if (!len) return; if (s.end && v.currentTime >= s.end) { this.playScene((i + 1) % this.heroScenes.length); return; } this.setState({ progress: Math.min(1, v.currentTime / len) }); },
+          onTime: e => { if ((this.state.scene || 0) !== i) return; const v = e.target; const len = s.end || v.duration; if (!len) return; if (s.end && v.currentTime >= s.end) { this.playScene((i + 1) % this.heroScenes.length); return; } this.setState({ progress: Math.min(1, v.currentTime / len) }); },
           onEnded: () => { if ((this.state.scene || 0) === i) this.playScene((i + 1) % this.heroScenes.length); }
         };
       }),
