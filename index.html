@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NUMION — Where new miracles awaken.</title>
+<meta name="description" content="Numion Awakening PDRN + Exosome Serum and the Awakening ritual line. Quiet luxury K-beauty. Designed in California · Crafted in Korea.">
+<meta property="og:title" content="NUMION — Where new miracles awaken.">
+<meta property="og:description" content="The ritual of awakening beauty. PDRN + Exosome K-beauty serum.">
+<meta property="og:image" content="https://thenumion.com/hero-product.jpg">
+<link rel="canonical" href="https://thenumion.com/">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@400;500&family=Noto+Serif+KR:wght@300;400&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F6F2EA;color:#2A3540;font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#2A3540;text-decoration:none;transition:color .3s}
+a:hover{color:#A8884E}
+input::placeholder{color:rgba(246,242,234,.6)}
+button{font-family:inherit}
+</style>
+</helmet>
+
+<div style="background:#F6F2EA;min-height:100vh;overflow-x:hidden">
+
+<header style="position:fixed;top:0;left:0;right:0;z-index:40;background:{{ headerBg }};border-bottom:1px solid {{ headerLine }};backdrop-filter:{{ headerBlur }};transition:background .5s, border-color .5s">
+  <div style="max-width:1440px;margin:0 auto;padding:0 clamp(24px,4vw,56px);height:80px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px">
+    <nav style="display:flex;gap:32px;flex-wrap:wrap;font:400 13px/1 Inter,sans-serif;letter-spacing:.04em">
+      <a href="#ritual">The Ritual</a>
+      <a href="#collection">Products</a>
+      <a href="#science">Ingredients</a>
+      <a href="#journal">Journal</a>
+      <a href="#collection">Store</a>
+    </nav>
+    <a href="#top" style="font:300 30px/1 'Cormorant Garamond',serif;letter-spacing:.32em;padding-left:.32em">NUMION</a>
+    <div style="display:flex;justify-content:flex-end;align-items:center;gap:32px;font:400 12px/1 Inter,sans-serif;letter-spacing:.08em">
+      <div style="display:flex;align-items:center;gap:8px">
+        <button onClick="{{ setEN }}" style="background:none;border:0;padding:4px 0;cursor:pointer;font:inherit;letter-spacing:inherit;color:#2A3540;opacity:{{ enOpacity }}">EN</button>
+        <span style="color:#8A8578">·</span>
+        <button onClick="{{ setKR }}" style="background:none;border:0;padding:4px 0;cursor:pointer;font:inherit;letter-spacing:inherit;color:#2A3540;opacity:{{ krOpacity }}">KR</button>
+      </div>
+      <button onClick="{{ openCart }}" style="background:none;border:0;cursor:pointer;display:flex;align-items:center;gap:8px;font:inherit;letter-spacing:inherit;color:#2A3540" style-hover="color:#A8884E">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M5 8h14l-1 13H6L5 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg>
+        <span>Bag ({{ cartCount }})</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section id="top" data-screen-label="01 Hero" style="position:relative;width:100%;aspect-ratio:16/9;min-height:640px;max-height:100vh;overflow:hidden;background:#B5CBD8">
+  <sc-for list="{{ scenes }}" as="sc" hint-placeholder-count="2">
+    <div style="position:absolute;inset:0;opacity:{{ sc.opacity }};transition:opacity {{ sc.fade }} ease">
+      <img src="{{ sc.poster }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 50%">
+      <video ref="{{ sc.ref }}" data-src="{{ sc.video }}" poster="{{ sc.poster }}" muted="{{ true }}" playsInline="{{ true }}" preload="auto" onTimeUpdate="{{ sc.onTime }}" onEnded="{{ sc.onEnded }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 50%;transform:{{ sc.scale }};transition:transform 12s cubic-bezier(.2,.6,.2,1)"></video>
+    </div>
+  </sc-for>
+  <div style="position:absolute;inset:0;background:{{ heroVeil }};transition:background 1.2s"></div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:160px;background:linear-gradient(180deg, rgba(246,242,234,0), rgba(246,242,234,.35))"></div>
+  <div style="position:absolute;inset:0;padding:80px clamp(24px,4vw,56px) 0;display:flex;align-items:center">
+    <div style="width:100%;max-width:1440px;margin:0 auto">
+      <div style="max-width:min(560px,44%);min-width:300px;display:flex;flex-direction:column;gap:32px">
+        <div style="display:flex;align-items:center;gap:16px;font:500 11px/1 Inter,sans-serif;letter-spacing:.24em;color:#4A6578"><span style="width:24px;height:1px;background:#C9A96E"></span>THE AWAKENING LINE</div>
+        <h1 style="margin:0;font:300 clamp(52px,6.4vw,104px)/.98 'Cormorant Garamond',serif;letter-spacing:.01em;color:#2A3540;text-wrap:balance">Where new miracles awaken.</h1>
+        <p style="margin:0;font:300 italic clamp(20px,1.7vw,26px)/1.3 'Cormorant Garamond',serif;color:#8C6F3A">Numion Awakening PDRN + Exosome Serum</p>
+        <div style="display:flex;align-items:center;gap:32px;flex-wrap:wrap;margin-top:8px">
+          <a href="#serum" style="display:inline-flex;align-items:center;gap:16px;padding:18px 32px;border:1px solid #2A3540;color:#2A3540;font:400 13px/1 Inter,sans-serif;letter-spacing:.08em;transition:background .4s, color .4s, border-color .4s" style-hover="background:#2A3540;color:#F6F2EA">Begin the Ritual <span>→</span></a>
+          <span style="font:300 14px/1.6 'Noto Serif KR',serif;color:#4A6578">깨어나는 美의 의식</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;padding:0 clamp(24px,4vw,56px) 40px">
+    <div style="max-width:1440px;margin:0 auto;display:flex;gap:32px">
+      <sc-for list="{{ indicators }}" as="sc" hint-placeholder-count="4">
+        <button onClick="{{ sc.go }}" style="flex:0 1 240px;background:none;border:0;padding:0;cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:12px;color:#2A3540">
+          <span style="display:block;height:1px;background:rgba(42,53,64,.2);position:relative;overflow:hidden"><span style="position:absolute;inset:0;background:#2A3540;transform-origin:left;transform:{{ sc.progress }}"></span></span>
+          <span style="display:flex;gap:12px;font:500 10px/1 Inter,sans-serif;letter-spacing:.2em;opacity:{{ sc.labelOpacity }};transition:opacity .4s"><span style="color:#8C6F3A">{{ sc.n }}</span>{{ sc.label }}</span>
+        </button>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="02 Manifesto" style="padding:clamp(96px,13vw,192px) 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:32px;background:linear-gradient(180deg,#F6F2EA 0%,#F6F2EA 40%,#E8EEF2 100%)">
+  <span style="width:1px;height:56px;background:#C9A96E"></span>
+  <p style="margin:0;max-width:880px;font:300 italic clamp(30px,3.6vw,48px)/1.3 'Cormorant Garamond',serif;text-wrap:balance">“Beauty does not arrive. It awakens — quietly, deliberately, one ritual at a time.”</p>
+  <p style="margin:0;font:300 16px/1.8 'Noto Serif KR',serif;color:#8A8578">아름다움은 찾아오지 않는다. 하나의 의식으로, 조용히 깨어난다.</p>
+</section>
+
+<section id="serum" data-screen-label="03 Hero Serum" style="position:relative;background:linear-gradient(180deg,#E8EEF2 0%,#CCDCE5 45%,#B5CBD8 100%);padding:clamp(96px,11vw,176px) clamp(24px,4vw,56px)">
+  <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(48px,7vw,112px);align-items:center">
+    <div style="position:relative;aspect-ratio:4/5;overflow:hidden;background:#E8EEF2" onMouseEnter="{{ serumEnter }}" onMouseLeave="{{ serumLeave }}">
+      <img src="serum-model.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+      <video data-src="serum-model.mp4" poster="serum-model.jpg" muted="{{ true }}" loop="{{ true }}" autoPlay="{{ true }}" playsInline="{{ true }}" aria-label="Model applying Numion Awakening PDRN + Exosome Serum" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:{{ serumImgScale }};transition:transform 2s cubic-bezier(.2,.7,.2,1)"></video>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:32px">
+      <div style="display:flex;align-items:center;gap:16px;font:500 11px/1 Inter,sans-serif;letter-spacing:.24em;color:#2A3540"><span style="width:24px;height:1px;background:#C9A96E"></span>THE HERO RITUAL · 깨어남</div>
+      <h2 style="margin:0;font:300 clamp(48px,5.4vw,80px)/.98 'Cormorant Garamond',serif;letter-spacing:.01em">The Awakening Serum</h2>
+      <p style="margin:0;font:300 italic clamp(22px,2vw,28px)/1.25 'Cormorant Garamond',serif;color:#2A3540">Numion Awakening <span style="color:#7A5F2E">PDRN + Exosome</span> Serum</p>
+      <p style="margin:0;max-width:480px;font:400 15px/1.7 Inter,sans-serif;color:#2A3540">The first K-beauty ritual serum built on dual bio-regenerative actives — 2% salmon PDRN and a Cica-derived plant exosome complex, held in dawn-tinted glass.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:480px;padding:32px 0;border-top:1px solid rgba(42,53,64,.2);border-bottom:1px solid rgba(42,53,64,.2)">
+        <div style="display:flex;flex-direction:column;gap:8px"><span style="font:300 56px/1 'Cormorant Garamond',serif">+10%</span><span style="font:400 13px/1.5 Inter,sans-serif;color:#2A3540">skin density after four weeks</span></div>
+        <div style="display:flex;flex-direction:column;gap:8px"><span style="font:300 56px/1 'Cormorant Garamond',serif">+20%</span><span style="font:400 13px/1.5 Inter,sans-serif;color:#2A3540">radiance after two weeks</span></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:32px;flex-wrap:wrap">
+        <button onClick="{{ addSerum }}" style="display:inline-flex;align-items:center;gap:16px;padding:20px 32px;background:#2A3540;color:#F6F2EA;border:1px solid #2A3540;cursor:pointer;font:400 13px/1 Inter,sans-serif;letter-spacing:.08em;transition:background .4s, border-color .4s, color .4s" style-hover="background:#C9A96E;border-color:#C9A96E;color:#2A3540">{{ serumCta }} <span>→</span></button>
+        <span style="font:400 14px/1 Inter,sans-serif;color:#2A3540">{{ serumPriceLine }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="collection" data-screen-label="04 Collection" style="padding:clamp(96px,13vw,192px) clamp(24px,4vw,56px)">
+  <div style="max-width:1440px;margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:64px">
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;align-items:center;gap:16px;font:500 11px/1 Inter,sans-serif;letter-spacing:.24em;color:#4A6578"><span style="width:24px;height:1px;background:#C9A96E"></span>THE FULL RITUAL</div>
+        <h2 style="margin:0;font:300 clamp(40px,4.4vw,64px)/1.05 'Cormorant Garamond',serif;letter-spacing:.01em">The Awakening line.</h2>
+      </div>
+      <p style="margin:0;max-width:400px;font:400 15px/1.7 Inter,sans-serif;color:#6B6A63">Four formulas, one ritual — from the first cleanse at dawn to the quiet renewal of night.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(16px,2vw,32px)">
+      <sc-for list="{{ products }}" as="p" hint-placeholder-count="4">
+        <article onMouseEnter="{{ p.onEnter }}" onMouseLeave="{{ p.onLeave }}" style="display:flex;flex-direction:column;gap:24px">
+          <a href="#collection" style="position:relative;display:block;aspect-ratio:4/5;overflow:hidden;background:#E8EEF2">
+            <img src="{{ p.img }}" alt="{{ p.fullName }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:{{ p.baseTransform }};transition:transform 1.4s cubic-bezier(.2,.7,.2,1)">
+            <video ref="{{ p.vref }}" data-src="{{ p.video }}" poster="{{ p.hover }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;opacity:{{ p.hoverOpacity }};clip-path:{{ p.hoverClip }};transform:{{ p.hoverTransform }};transition:opacity .9s ease, clip-path 1s cubic-bezier(.7,0,.2,1), transform 2.4s cubic-bezier(.2,.7,.2,1)"></video>
+            <span style="position:absolute;left:16px;top:16px;padding:8px 12px;background:rgba(246,242,234,.92);font:500 10px/1 Inter,sans-serif;letter-spacing:.2em;color:#2A3540;opacity:{{ p.hoverOpacity }};transition:opacity .6s .2s">{{ p.moment }}</span>
+            <span style="position:absolute;left:0;right:0;bottom:0;height:2px;background:#B5CBD8;transform-origin:left;transform:{{ p.lineScale }};transition:transform 1s cubic-bezier(.7,0,.2,1)"></span>
+          </a>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span style="font:500 10px/1 Inter,sans-serif;letter-spacing:.28em;color:#4A6578">NUMION · {{ p.step }}</span>
+            <h3 style="margin:4px 0 0;font:300 26px/1.15 'Cormorant Garamond',serif;color:#2A3540;text-wrap:pretty">Numion <span style="font-style:italic;color:#8C6F3A">Awakening</span> {{ p.type }}</h3>
+            <p style="margin:4px 0 0;font:400 13px/1.6 Inter,sans-serif;color:#6B6A63">{{ p.roleEn }} · <span style="font-family:'Noto Serif KR',serif;font-weight:300">{{ p.roleKr }}</span></p>
+          </div>
+          <div style="margin-top:auto;padding-top:16px;border-top:1px solid rgba(42,53,64,.12);display:flex;justify-content:space-between;align-items:center;gap:16px">
+            <span style="font:400 14px/1 Inter,sans-serif">{{ p.priceLabel }} <span style="color:#6B6A63">· {{ p.size }}</span></span>
+            <button onClick="{{ p.add }}" style="background:none;border:0;padding:8px 0;cursor:pointer;font:400 13px/1 Inter,sans-serif;letter-spacing:.04em;color:#2A3540;border-bottom:1px solid #C9A96E;transition:color .3s" style-hover="color:#8C6F3A">{{ p.addLabel }}</button>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="ritual" data-screen-label="05 Pillars" style="padding:clamp(96px,13vw,192px) clamp(24px,4vw,56px);background:#E8EEF2">
+  <div style="max-width:1280px;margin:0 auto">
+    <div style="display:flex;flex-direction:column;gap:24px;max-width:680px;margin-bottom:96px">
+      <div style="display:flex;align-items:center;gap:16px;font:500 11px/1 Inter,sans-serif;letter-spacing:.24em;color:#4A6578"><span style="width:24px;height:1px;background:#C9A96E"></span>THE FOUR PILLARS</div>
+      <h2 style="margin:0;font:300 clamp(40px,4.4vw,64px)/1.05 'Cormorant Garamond',serif;letter-spacing:.01em">We do not sell products. We offer a ritual worth repeating, every day.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:48px">
+      <sc-for list="{{ pillars }}" as="pl" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:16px;padding-top:24px;border-top:1px solid #B5CBD8">
+          <span style="font:300 italic 28px/1 'Cormorant Garamond',serif;color:#8C6F3A">{{ pl.n }}</span>
+          <h3 style="margin:8px 0 0;font:300 34px/1.1 'Cormorant Garamond',serif">{{ pl.title }}</h3>
+          <span style="font:300 15px/1 'Noto Serif KR',serif;color:#4A6578">{{ pl.kr }}</span>
+          <p style="margin:0;font:400 14px/1.7 Inter,sans-serif;color:#4F5A63">{{ pl.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="06 Two Rituals" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr))">
+  <div style="padding:clamp(96px,11vw,160px) clamp(24px,5vw,96px);background:linear-gradient(160deg,#F6F2EA 0%,#F3EBDC 100%);display:flex;flex-direction:column;gap:48px">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <span style="font:500 11px/1 Inter,sans-serif;letter-spacing:.24em;color:#8C6F3A">MORNING · 아침의 의식</span>
+      <h2 style="margin:0;font:300 italic clamp(40px,4vw,56px)/1.05 'Cormorant Garamond',serif">Le Rituel du Matin</h2>
+    </div>
+    <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column">
+      <sc-for list="{{ morning }}" as="s" hint-placeholder-count="3">
+        <li style="display:grid;grid-template-columns:48px 1fr;gap:16px;padding:24px 0;border-top:1px solid rgba(42,53,64,.12)">
+          <span style="font:300 italic 22px/1.2 'Cormorant Garamond',serif;color:#8C6F3A">{{ s.n }}</span>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <span style="font:300 28px/1.15 'Cormorant Garamond',serif">{{ s.fr }}</span>
+            <span style="font:400 13px/1.6 Inter,sans-serif;color:#6B6A63">{{ s.product }}</span>
+          </div>
+        </li>
+      </sc-for>
+    </ol>
+  </div>
+  <div style="padding:clamp(96px,11vw,160px) clamp(24px,5vw,96px);background:linear-gradient(160deg,#B5CBD8 0%,#7C9BAE 100%);display:flex;flex-direction:column;gap:48px;color:#1E2830">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <span style="font:500 11px/1 Inter,sans-serif;letter-spacing:.24em">EVENING · 저녁의 의식</span>
+      <h2 style="margin:0;font:300 italic clamp(40px,4vw,56px)/1.05 'Cormorant Garamond',serif">Le Rituel du Soir</h2>
+    </div>
+    <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column">
+      <sc-for list="{{ evening }}" as="s" hint-placeholder-count="3">
+        <li style="display:grid;grid-template-columns:48px 1fr;gap:16px;padding:24px 0;border-top:1px solid rgba(30,40,48,.2)">
+          <span style="font:300 italic 22px/1.2 'Cormorant Garamond',serif">{{ s.n }}</span>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <span style="font:300 28px/1.15 'Cormorant Garamond',serif">{{ s.fr }}</span>
+            <span style="font:400 13px/1.6 Inter,sans-serif">{{ s.product }}</span>
+          </div>
+        </li>
+      </sc-for>
+    </ol>
+  </div>
+</section>
+
+<section id="science" data-screen-label="07 Science" style="padding:clamp(96px,13vw,192px) clamp(24px,4vw,56px)">
+  <div style="max-width:1280px;margin:0 auto">
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px;margin-bottom:96px">
+      <div style="display:flex;align-items:center;gap:16px;font:500 11px/1 Inter,sans-serif;letter-spacing:.24em;color:#4A6578"><span style="width:24px;height:1px;background:#C9A96E"></span>INSIDE THE BOTTLE<span style="width:24px;height:1px;background:#C9A96E"></span></div>
+      <h2 style="margin:0;font:300 clamp(44px,5vw,72px)/1 'Cormorant Garamond',serif">Science, whispered.</h2>
+      <p style="margin:16px 0 0;max-width:680px;font:300 italic clamp(22px,2vw,28px)/1.4 'Cormorant Garamond',serif;color:#4F5A63;text-wrap:balance">“PDRN provides the material of renewal. Exosomes carry its instruction. Your skin remembers how to awaken.”</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(48px,8vw,128px)">
+      <div style="display:flex;flex-direction:column;gap:16px;padding-top:32px;border-top:1px solid #C9A96E">
+        <span style="font:300 italic 24px/1 'Cormorant Garamond',serif;color:#8C6F3A">i.</span>
+        <h3 style="margin:0;font:300 40px/1.1 'Cormorant Garamond',serif">PDRN</h3>
+        <span style="font:500 11px/1 Inter,sans-serif;letter-spacing:.2em;color:#4A6578">THE MATERIAL OF RENEWAL</span>
+        <p style="margin:8px 0 0;font:400 15px/1.7 Inter,sans-serif;color:#4F5A63">A 2% concentration of salmon-derived polydeoxyribonucleotide, the DNA fragments skin draws on as raw material when it rebuilds.</p>
+        <p style="margin:0;font:300 14px/1.8 'Noto Serif KR',serif;color:#6B6A63">PDRN은 재생의 원재료를 제공합니다.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;padding-top:32px;border-top:1px solid #C9A96E">
+        <span style="font:300 italic 24px/1 'Cormorant Garamond',serif;color:#8C6F3A">ii.</span>
+        <h3 style="margin:0;font:300 40px/1.1 'Cormorant Garamond',serif">Cica exosomes</h3>
+        <span style="font:500 11px/1 Inter,sans-serif;letter-spacing:.2em;color:#4A6578">THE INSTRUCTION</span>
+        <p style="margin:8px 0 0;font:400 15px/1.7 Inter,sans-serif;color:#4F5A63">Plant exosomes drawn from centella asiatica — tiny carriers that deliver the signal telling skin when, and how, to renew.</p>
+        <p style="margin:0;font:300 14px/1.8 'Noto Serif KR',serif;color:#6B6A63">엑소좀은 그 지시를 전달하고, 피부는 깨어남을 기억합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="journal" data-screen-label="08 Journal" style="padding:0 clamp(24px,4vw,56px) clamp(96px,13vw,192px)">
+  <div style="max-width:1280px;margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:64px">
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;align-items:center;gap:16px;font:500 11px/1 Inter,sans-serif;letter-spacing:.24em;color:#4A6578"><span style="width:24px;height:1px;background:#C9A96E"></span>JOURNAL</div>
+        <h2 style="margin:0;font:300 clamp(40px,4.4vw,64px)/1.05 'Cormorant Garamond',serif">Notes from the dawn.</h2>
+      </div>
+      <a href="#journal" style="font:400 13px/1 Inter,sans-serif;letter-spacing:.04em;padding-bottom:8px;border-bottom:1px solid #C9A96E">All stories →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,3vw,48px)">
+      <sc-for list="{{ journal }}" as="j" hint-placeholder-count="3">
+        <a href="#journal" style="display:flex;flex-direction:column;gap:24px;color:#2A3540" style-hover="color:#2A3540">
+          <div style="aspect-ratio:4/5;overflow:hidden;background:#E8EEF2"><img src="{{ j.img }}" alt="" style="width:100%;height:100%;object-fit:cover;object-position:{{ j.pos }};transition:transform 1.6s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)"></div>
+          <div style="display:flex;gap:16px;font:500 11px/1 Inter,sans-serif;letter-spacing:.2em;color:#4A6578"><span>{{ j.cat }}</span><span style="color:#6B6A63">{{ j.time }}</span></div>
+          <h3 style="margin:0;font:300 30px/1.15 'Cormorant Garamond',serif;text-wrap:pretty">{{ j.title }}</h3>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="09 Newsletter" style="background:#4A6578;color:#F6F2EA;padding:clamp(96px,12vw,176px) clamp(24px,4vw,56px)">
+  <div style="max-width:680px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px">
+    <span style="font:500 11px/1 Inter,sans-serif;letter-spacing:.24em;color:#B5CBD8">THE RITUAL LETTER</span>
+    <h2 style="margin:0;font:300 clamp(44px,5vw,72px)/1 'Cormorant Garamond',serif">Join the Ritual.</h2>
+    <p style="margin:0;font:400 15px/1.7 Inter,sans-serif;color:#DCE4EA">Slow letters on dawn, skin and the art of beginning again. Once a month.</p>
+    <sc-if value="{{ notSubscribed }}" hint-placeholder-val="{{ true }}">
+      <form onSubmit="{{ subscribe }}" style="margin-top:24px;width:100%;max-width:480px;display:flex;align-items:center;border-bottom:1px solid rgba(246,242,234,.5)">
+        <input type="email" required="{{ true }}" value="{{ email }}" onChange="{{ onEmail }}" placeholder="Your email address" aria-label="Email address" style="flex:1;min-width:0;background:transparent;border:0;outline:0;padding:16px 0;color:#F6F2EA;font:400 15px/1 Inter,sans-serif">
+        <button type="submit" aria-label="Subscribe" style="background:none;border:0;cursor:pointer;color:#C9A96E;font:300 28px/1 'Cormorant Garamond',serif;padding:8px 0 8px 16px;transition:transform .3s" style-hover="transform:translateX(4px)">→</button>
+      </form>
+    </sc-if>
+    <sc-if value="{{ subscribed }}" hint-placeholder-val="{{ false }}">
+      <p style="margin:24px 0 0;font:300 italic 24px/1.4 'Cormorant Garamond',serif;color:#E8D9B8">Thank you. Your first letter arrives with the next dawn.</p>
+    </sc-if>
+  </div>
+</section>
+
+<sc-if value="{{ showTrust }}" hint-placeholder-val="{{ true }}">
+  <div style="background:#F6F2EA;padding:48px 24px;text-align:center;font:300 italic clamp(18px,1.6vw,22px)/1.6 'Cormorant Garamond',serif;color:#4F5A63">Complimentary shipping worldwide · Direct from our skin lab · Thirty-day returns · Private consultation</div>
+</sc-if>
+
+<footer data-screen-label="10 Footer" style="background:#4A6578;color:#F6F2EA;padding:clamp(96px,9vw,128px) clamp(24px,4vw,56px) 48px">
+  <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:96px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:48px">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <span style="font:300 32px/1 'Cormorant Garamond',serif;letter-spacing:.32em">NUMION</span>
+        <span style="font:300 italic 20px/1.3 'Cormorant Garamond',serif;color:#E8D9B8">Where new miracles awaken.</span>
+      </div>
+      <sc-for list="{{ footerCols }}" as="c" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <span style="font:500 11px/1 Inter,sans-serif;letter-spacing:.2em;color:#B5CBD8">{{ c.title }}</span>
+          <sc-for list="{{ c.links }}" as="l" hint-placeholder-count="3">
+            <a href="#top" style="font:400 14px/1.4 Inter,sans-serif;color:#F6F2EA" style-hover="color:#C9A96E">{{ l }}</a>
+          </sc-for>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;padding-top:32px;border-top:1px solid rgba(246,242,234,.2);font:400 12px/1.6 Inter,sans-serif;color:#DCE4EA">
+      <span>Designed in California · Crafted in Korea</span>
+      <div style="display:flex;gap:24px;align-items:center">
+        <a href="https://www.instagram.com/thenumion" aria-label="Instagram" style="color:#F6F2EA;display:flex" style-hover="color:#C9A96E"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"></circle></svg></a>
+        <a href="https://www.tiktok.com/@thenumion" aria-label="TikTok" style="color:#F6F2EA;display:flex" style-hover="color:#C9A96E"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.8 5.8 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.2-1.6z"></path></svg></a>
+        <a href="https://www.pinterest.com/thenumion" aria-label="Pinterest" style="color:#F6F2EA;display:flex" style-hover="color:#C9A96E"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.6 19.3c-.1-.8-.2-2 0-2.9l1.2-5s-.3-.6-.3-1.5c0-1.4.8-2.4 1.8-2.4.9 0 1.3.6 1.3 1.4 0 .9-.5 2.1-.8 3.3-.2 1 .5 1.8 1.500 1.8 1.8 0 3.1-1.9 3.1-4.6 0-2.4-1.7-4.1-4.2-4.1-2.9 0-4.6 2.1-4.6 4.4 0 .9.3 1.8.8 2.3.1.1.1.2.1.3l-.3 1.2c0 .2-.2.3-.4.2-1.3-.6-2.1-2.500-2.1-4 0-3.3 2.4-6.3 6.900-6.3 3.6 0 6.4 2.6 6.4 6 0 3.6-2.2 6.4-5.4 6.4-1 0-2-.5-2.4-1.2l-.6 2.5c-.2.900-.9 2.1-1.300 2.8A10 10 0 1 0 12 2z"></path></svg></a>
+      </div>
+      <span>© 2026 NUMION · thenumion.com</span>
+    </div>
+  </div>
+</footer>
+
+<div onClick="{{ closeCart }}" style="position:fixed;inset:0;z-index:50;background:rgba(42,53,64,.32);opacity:{{ overlayOpacity }};pointer-events:{{ overlayEvents }};transition:opacity .5s"></div>
+<aside aria-label="Shopping bag" style="position:fixed;top:0;right:0;bottom:0;z-index:60;width:min(440px,100%);background:#F6F2EA;transform:{{ drawerTransform }};transition:transform .6s cubic-bezier(.7,0,.2,1);display:flex;flex-direction:column">
+  <div style="height:80px;padding:0 32px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(42,53,64,.12)">
+    <span style="font:300 26px/1 'Cormorant Garamond',serif">Your ritual</span>
+    <button onClick="{{ closeCart }}" style="background:none;border:0;cursor:pointer;font:400 12px/1 Inter,sans-serif;letter-spacing:.12em;color:#2A3540">CLOSE</button>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:16px 32px">
+    <sc-if value="{{ cartEmpty }}" hint-placeholder-val="{{ true }}">
+      <div style="padding:96px 0;text-align:center;display:flex;flex-direction:column;gap:16px;align-items:center">
+        <p style="margin:0;font:300 italic 24px/1.3 'Cormorant Garamond',serif;color:#4F5A63">Your ritual begins here.</p>
+        <a href="#collection" onClick="{{ closeCart }}" style="font:400 13px/1 Inter,sans-serif;padding-bottom:6px;border-bottom:1px solid #C9A96E">Explore the collection</a>
+      </div>
+    </sc-if>
+    <sc-for list="{{ cartItems }}" as="ci" hint-placeholder-count="0">
+      <div style="display:grid;grid-template-columns:88px 1fr;gap:16px;padding:24px 0;border-bottom:1px solid rgba(42,53,64,.08)">
+        <div style="aspect-ratio:4/5;background:#E8EEF2;overflow:hidden"><img src="{{ ci.img }}" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span style="font:300 20px/1.2 'Cormorant Garamond',serif">Numion <span style="font-style:italic;color:#8C6F3A">Awakening</span> {{ ci.type }}</span>
+          <span style="font:400 12px/1 Inter,sans-serif;color:#6B6A63">{{ ci.size }}</span>
+          <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center">
+            <div style="display:flex;align-items:center;gap:16px;font:400 13px/1 Inter,sans-serif">
+              <button onClick="{{ ci.dec }}" aria-label="Decrease" style="background:none;border:1px solid rgba(42,53,64,.2);width:28px;height:28px;cursor:pointer;color:#2A3540">−</button>
+              <span>{{ ci.qty }}</span>
+              <button onClick="{{ ci.inc }}" aria-label="Increase" style="background:none;border:1px solid rgba(42,53,64,.2);width:28px;height:28px;cursor:pointer;color:#2A3540">+</button>
+            </div>
+            <span style="font:400 14px/1 Inter,sans-serif">{{ ci.lineTotal }}</span>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+  <div style="padding:24px 32px 32px;border-top:1px solid rgba(42,53,64,.12);display:flex;flex-direction:column;gap:16px">
+    <div style="display:flex;justify-content:space-between;font:400 14px/1 Inter,sans-serif"><span>Subtotal</span><span>{{ subtotal }}</span></div>
+    <span style="font:400 12px/1.6 Inter,sans-serif;color:#6B6A63">Complimentary shipping worldwide · Thirty-day returns</span>
+    <button style="padding:20px;background:#2A3540;color:#F6F2EA;border:0;cursor:pointer;font:400 13px/1 Inter,sans-serif;letter-spacing:.12em;transition:background .4s, color .4s" style-hover="background:#C9A96E;color:#2A3540">CHECKOUT</button>
+  </div>
+</aside>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;cleanserPrice&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:42,&quot;min&quot;:0,&quot;max&quot;:500,&quot;unit&quot;:&quot;$&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;01 Rice + Centella Cleanser&quot;},&quot;cleanserSize&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;150 ml&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;01 Rice + Centella Cleanser&quot;},&quot;cleanserImage&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;cleanser-v2.jpg&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;01 Rice + Centella Cleanser&quot;},&quot;cleanserModelImage&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;cleanser-model-v2.jpg&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;01 Rice + Centella Cleanser&quot;},&quot;cleanserModelVideo&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;cleanser-model-v2.mp4&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;01 Rice + Centella Cleanser&quot;},&quot;serumPrice&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:95,&quot;min&quot;:0,&quot;max&quot;:500,&quot;unit&quot;:&quot;$&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;02 PDRN + Exosome Serum&quot;},&quot;serumSize&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;50 ml&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;02 PDRN + Exosome Serum&quot;},&quot;serumImage&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;serum.jpg&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;02 PDRN + Exosome Serum&quot;},&quot;serumModelImage&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;serum-model.jpg&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;02 PDRN + Exosome Serum&quot;},&quot;serumModelVideo&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;serum-model.mp4&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;02 PDRN + Exosome Serum&quot;},&quot;spfPrice&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:48,&quot;min&quot;:0,&quot;max&quot;:500,&quot;unit&quot;:&quot;$&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;03 SPF 50+ Day Veil&quot;},&quot;spfSize&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;50 ml&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;03 SPF 50+ Day Veil&quot;},&quot;spfImage&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;spf.jpg&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;03 SPF 50+ Day Veil&quot;},&quot;spfModelImage&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;spf-model.jpg&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;03 SPF 50+ Day Veil&quot;},&quot;spfModelVideo&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;spf-model.mp4&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;03 SPF 50+ Day Veil&quot;},&quot;creamPrice&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:68,&quot;min&quot;:0,&quot;max&quot;:500,&quot;unit&quot;:&quot;$&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;04 Ceramide Night Cream&quot;},&quot;creamSize&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;50 ml&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;04 Ceramide Night Cream&quot;},&quot;creamImage&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;cream-v2.jpg&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;04 Ceramide Night Cream&quot;},&quot;creamModelImage&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;cream-model-v2.jpg&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;04 Ceramide Night Cream&quot;},&quot;creamModelVideo&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;cream-model-v2.mp4&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;04 Ceramide Night Cream&quot;},&quot;hoverStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Crossfade&quot;,&quot;Slide up&quot;],&quot;default&quot;:&quot;Crossfade&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Layout&quot;},&quot;showTrustLine&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;}}">
+class Component extends DCLogic {
+  state = { scrolled: false, hovered: null, serumHover: false, cart: {}, cartOpen: false, lang: 'EN', videoOk: false, zoom: false, email: '', subscribed: false };
+  videoRef = React.createRef();
+
+  products = [
+    { id: 'cleanser', step: '01', type: 'Rice + Centella Cleanser', roleEn: 'The Cleanse', roleKr: '비움', price: 42, size: '150 ml', img: 'cleanser-v2.jpg', hover: 'cleanser-model-v2.jpg', moment: 'AUBE · DAWN' },
+    { id: 'serum', step: '02', type: 'PDRN + Exosome Serum', roleEn: 'The Awakening', roleKr: '깨어남', price: 95, size: '50 ml', img: 'serum.jpg', hover: 'serum-model.jpg', moment: 'ÉVEIL · AWAKENING' },
+    { id: 'spf', step: '03', type: 'SPF 50+ Day Veil', roleEn: 'The Shield', roleKr: '보호', price: 48, size: '50 ml', img: 'spf.jpg', hover: 'spf-model.jpg', moment: 'LUMIÈRE · LIGHT' },
+    { id: 'cream', step: '04', type: 'Ceramide Night Cream', roleEn: 'The Renewal', roleKr: '재생', price: 68, size: '50 ml', img: 'cream-v2.jpg', hover: 'cream-model-v2.jpg', moment: 'SONGE · DREAM' }
+  ];
+
+  componentDidMount() {
+    this.onScroll = () => { const s = window.scrollY > 40; if (s !== this.state.scrolled) this.setState({ scrolled: s }); };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+    document.querySelectorAll('video').forEach(v => { v.muted = true; });
+    this.playScene(0);
+    this.loadAllVideos();
+    this.products.forEach(p => { const im = new Image(); im.src = p.hover; });
+  }
+  blobCache = {};
+  loadVideo(v) {
+    const url = v && v.getAttribute('data-src');
+    if (!url || v.dataset.loaded) return Promise.resolve();
+    v.dataset.loaded = '1';
+    const p = this.blobCache[url] || (this.blobCache[url] = fetch(url).then(r => r.blob()).then(b => URL.createObjectURL(b)).catch(() => url));
+    return p.then(src => { v.src = src; v.load(); });
+  }
+  async loadAllVideos() {
+    const all = [...document.querySelectorAll('video[data-src]')];
+    const hero = this.heroScenes.map(s => s.ref.current).filter(Boolean);
+    for (const v of hero) {
+      await this.loadVideo(v);
+      const i = hero.indexOf(v);
+      if ((this.state.scene || 0) === i) this.playScene(i);
+    }
+    for (const v of all) { if (hero.includes(v)) continue; await this.loadVideo(v); if (v.autoplay || v.hasAttribute('autoplay')) this.safePlay(v); }
+  }
+  safePlay(v) { if (!v) return; v.muted = true; const r = v.play && v.play(); if (r && r.catch) r.catch(() => {}); }
+  playScene(i) {
+    this.heroScenes.forEach((s, j) => { const v = s.ref.current; if (!v) return; if (j === i) { try { v.currentTime = 0; } catch (e) {} this.safePlay(v); } else { v.pause(); } });
+    this.setState({ scene: i, progress: 0, zoomKey: i });
+    clearTimeout(this.sceneTimer);
+    // fallback advance if a video can't play
+    this.sceneTimer = setTimeout(() => { if (this.state.scene === i && this.state.progress === 0) this.playScene((i + 1) % this.heroScenes.length); }, 11000);
+  }
+  heroScenes = [
+    { n: '01', label: 'THE AWAKENING SERUM', video: 'hero-product.mp4', poster: 'hero-product.jpg', ref: React.createRef() },
+    { n: '02', label: 'ÉVEIL · THE SERUM', video: 'hero-serum2-v2.mp4', poster: 'hero-serum2-v2.jpg', ref: React.createRef() },
+    { n: '03', label: 'AUBE · THE CLEANSE', video: 'hero-wash-v2.mp4', poster: 'hero-wash.jpg', ref: React.createRef() },
+    { n: '04', label: 'THE MORNING RITUAL', video: 'hero-serum3-v2.mp4', poster: 'hero-serum3-v2.jpg', ref: React.createRef() }
+  ];
+  cardRefs = {};
+  cardRef(id) { return this.cardRefs[id] || (this.cardRefs[id] = React.createRef()); }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); clearTimeout(this.sceneTimer); }
+
+  getProducts() {
+    const P = this.props;
+    return this.products.map(p => ({
+      ...p,
+      price: Number(P[p.id + 'Price'] ?? p.price),
+      size: P[p.id + 'Size'] || p.size,
+      img: P[p.id + 'Image'] || p.img,
+      hover: P[p.id + 'ModelImage'] || p.hover,
+      video: P[p.id + 'ModelVideo'] || p.hover.replace('.jpg', '.mp4')
+    }));
+  }
+  add(id) { this.setState(s => ({ cart: { ...s.cart, [id]: (s.cart[id] || 0) + 1 }, cartOpen: true })); }
+  setQty(id, d) { this.setState(s => { const c = { ...s.cart }; c[id] = (c[id] || 0) + d; if (c[id] <= 0) delete c[id]; return { cart: c }; }); }
+
+  renderVals() {
+    const st = this.state;
+    const slide = (this.props.hoverStyle ?? 'Crossfade') === 'Slide up';
+    const solid = st.scrolled || st.cartOpen;
+    const fmt = n => '$' + n.toFixed(2).replace('.00', '');
+    const PR = this.getProducts();
+    const products = PR.map(p => {
+      const on = st.hovered === p.id;
+      return {
+        ...p,
+        fullName: 'Numion Awakening ' + p.type,
+        priceLabel: fmt(p.price),
+        addLabel: st.cart[p.id] ? 'Added · ' + st.cart[p.id] : 'Add to bag',
+        baseTransform: on ? 'scale(1.03)' : 'scale(1)',
+        hoverOpacity: slide ? 1 : (on ? 1 : 0),
+        hoverClip: slide ? (on ? 'inset(0 0 0 0)' : 'inset(100% 0 0 0)') : 'inset(0 0 0 0)',
+        hoverTransform: on ? 'scale(1)' : 'scale(1.08)',
+        lineScale: on ? 'scaleX(1)' : 'scaleX(0)',
+        vref: this.cardRef(p.id),
+        onEnter: () => { this.setState({ hovered: p.id }); const v = this.cardRef(p.id).current; if (v) { try { v.currentTime = 0; } catch (e) {} this.safePlay(v); } },
+        onLeave: () => { this.setState({ hovered: null }); const v = this.cardRef(p.id).current; if (v) setTimeout(() => { if (this.state.hovered !== p.id) v.pause(); }, 900); },
+        add: () => this.add(p.id)
+      };
+    });
+    const cartItems = PR.filter(p => st.cart[p.id]).map(p => ({
+      ...p, qty: st.cart[p.id], lineTotal: fmt(p.price * st.cart[p.id]),
+      inc: () => this.setQty(p.id, 1), dec: () => this.setQty(p.id, -1)
+    }));
+    const subtotal = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
+    const cartCount = cartItems.reduce((a, c) => a + c.qty, 0);
+    return {
+      headerBg: solid ? 'rgba(246,242,234,.94)' : 'rgba(246,242,234,0)',
+      headerLine: solid ? 'rgba(42,53,64,.08)' : 'rgba(246,242,234,0)',
+      headerBlur: solid ? 'blur(12px)' : 'none',
+      enOpacity: st.lang === 'EN' ? 1 : .5, krOpacity: st.lang === 'KR' ? 1 : .5,
+      setEN: () => this.setState({ lang: 'EN' }), setKR: () => this.setState({ lang: 'KR' }),
+      indicators: this.heroScenes.map((s, i) => ({ s, i })).filter(o => !o.s.sub).map(({ s, i }) => {
+        const cur = st.scene || 0, p = st.progress || 0;
+        const hasSub = this.heroScenes[i + 1] && this.heroScenes[i + 1].sub;
+        const last = hasSub ? i + 1 : i;
+        let prog = 0;
+        if (cur === i) prog = hasSub ? p * .5 : p;
+        else if (hasSub && cur === i + 1) prog = .5 + p * .5;
+        else if (cur > last) prog = 1;
+        const on = cur >= i && cur <= last;
+        return { n: s.n, label: s.label, progress: 'scaleX(' + prog + ')', labelOpacity: on ? 1 : .55, go: () => this.playScene(i) };
+      }),
+      scenes: this.heroScenes.map((s, i) => {
+        const on = (st.scene || 0) === i;
+        const prog = on ? (st.progress || 0) : ((st.scene || 0) > i ? 1 : 0);
+        return {
+          ...s,
+          opacity: on ? 1 : 0,
+          fade: (s.sub || (this.heroScenes[i + 1] && this.heroScenes[i + 1].sub && (st.scene || 0) === i + 1)) ? '.25s' : '1.6s',
+          scale: on ? 'scale(1.04)' : 'scale(1)',
+          progress: 'scaleX(' + prog + ')',
+          labelOpacity: on ? 1 : .55,
+          go: () => this.playScene(i),
+          onTime: e => { if ((this.state.scene || 0) !== i) return; const v = e.target; const len = s.end || v.duration; if (!len) return; if (s.end && v.currentTime >= s.end) { this.playScene((i + 1) % this.heroScenes.length); return; } this.setState({ progress: Math.min(1, v.currentTime / len) }); },
+          onEnded: () => { if ((this.state.scene || 0) === i) this.playScene((i + 1) % this.heroScenes.length); }
+        };
+      }),
+      serumEnter: () => this.setState({ serumHover: true }),
+      serumLeave: () => this.setState({ serumHover: false }),
+      serumImgScale: st.serumHover ? 'scale(1.04)' : 'scale(1)',
+      heroVeil: (st.scene || 0) === 2
+        ? 'linear-gradient(90deg, rgba(246,242,234,.9) 0%, rgba(246,242,234,.55) 24%, rgba(246,242,234,0) 34%)'
+        : 'linear-gradient(90deg, rgba(246,242,234,.88) 0%, rgba(246,242,234,.62) 28%, rgba(246,242,234,0) 50%)',
+      serumPriceLine: fmt(PR[1].price) + ' · ' + PR[1].size,
+      serumCta: st.cart.serum ? 'Added to your ritual' : 'Add to ritual',
+      products,
+      pillars: [
+        { n: '01', title: 'Comfort', kr: '포근함', body: 'Textures that settle like warm linen. Every formula begins with how it feels on the skin.' },
+        { n: '02', title: 'Rest', kr: '쉼', body: 'A pause held twice a day — the minutes that belong to no one but you.' },
+        { n: '03', title: 'Restoration', kr: '회복', body: 'Bio-regenerative actives that help skin recall its own capacity to repair.' },
+        { n: '04', title: 'Awakening', kr: '깨어남', body: 'The moment night releases into dawn, and skin wakes with it.' }
+      ],
+      morning: [
+        { n: '01', fr: 'Aube', product: 'Numion Awakening Rice + Centella Cleanser' },
+        { n: '02', fr: 'Éveil', product: 'Numion Awakening PDRN + Exosome Serum' },
+        { n: '03', fr: 'Lumière', product: 'Numion Awakening SPF 50+ Day Veil' }
+      ],
+      evening: [
+        { n: '01', fr: 'Aube', product: 'Numion Awakening Rice + Centella Cleanser' },
+        { n: '02', fr: 'Éveil', product: 'Numion Awakening PDRN + Exosome Serum' },
+        { n: '03', fr: 'Songe', product: 'Numion Awakening Ceramide Night Cream' }
+      ],
+      journal: [
+        { img: 'cleanser-model-v2.jpg', pos: '50% 30%', cat: 'RITUAL', time: '4 min', title: 'The quiet hour before sunrise' },
+        { img: 'spf-model.jpg', pos: '50% 25%', cat: 'BEAUTY', time: '5 min', title: 'Light, and how to wear it' },
+        { img: 'cream-model-v2.jpg', pos: '50% 30%', cat: 'WELLNESS', time: '6 min', title: 'What skin does while you dream' }
+      ],
+      footerCols: [
+        { title: 'SHOP', links: ['The Awakening line', 'Awakening Serum', 'Gift the ritual'] },
+        { title: 'RITUALS', links: ['Le Rituel du Matin', 'Le Rituel du Soir', 'Ingredients'] },
+        { title: 'ABOUT', links: ['Our story', 'Journal', 'Nu + 美 + On'] },
+        { title: 'CONTACT', links: ['info@thenumion.com', 'Private consultation', 'Shipping & returns'] }
+      ],
+      addSerum: () => this.add('serum'),
+      openCart: () => this.setState({ cartOpen: true }),
+      closeCart: () => this.setState({ cartOpen: false }),
+      overlayOpacity: st.cartOpen ? 1 : 0,
+      overlayEvents: st.cartOpen ? 'auto' : 'none',
+      drawerTransform: st.cartOpen ? 'translateX(0)' : 'translateX(100%)',
+      cartItems, cartEmpty: cartItems.length === 0, cartCount,
+      subtotal: fmt(subtotal),
+      email: st.email,
+      onEmail: e => this.setState({ email: e.target.value }),
+      subscribe: e => { e.preventDefault(); this.setState({ subscribed: true }); },
+      subscribed: st.subscribed, notSubscribed: !st.subscribed,
+      showTrust: this.props.showTrustLine ?? true
+    };
+  }
+}
+</script>
+</body>
+</html>
