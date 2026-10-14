@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F6F2EA">
 <title>NUMION 누미온 — Where new miracles awaken.</title>
 <meta name="description" content="누미온(NUMION) 공식 웹사이트. 누미온 어웨이크닝 PDRN + 엑소좀 세럼 — 깨어나는 美의 의식. Numion Awakening PDRN + Exosome Serum, quiet luxury K-beauty. Designed in California · Crafted in Korea.">
 <meta name="keywords" content="누미온, NUMION, 누미온 세럼, PDRN 세럼, 엑소좀 세럼, Numion Awakening PDRN + Exosome Serum, K-beauty">
@@ -17,7 +18,6 @@
 <script src="./support.js"></script>
 </head>
 <body>
-<noscript><h1>NUMION 누미온 — Where new miracles awaken.</h1><p>누미온(NUMION)은 캘리포니아에서 디자인하고 한국에서 만드는 K-뷰티 스킨케어 브랜드입니다. 깨어나는 美의 의식.</p><ul><li>Numion Awakening Rice + Centella Cleanser — $42 · 150 ml</li><li>Numion Awakening PDRN + Exosome Serum — $95 · 50 ml</li><li>Numion Awakening SPF 50+ Day Veil — $48 · 50 ml</li><li>Numion Awakening Ceramide Night Cream — $68 · 50 ml</li></ul><p>info@thenumion.com · Designed in California · Crafted in Korea</p></noscript>
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +35,21 @@ button{font-family:inherit}
 
 <div style="background:#F6F2EA;min-height:100vh;overflow-x:hidden">
 
-<header style="position:fixed;top:0;left:0;right:0;z-index:40;background:{{ headerBg }};border-bottom:1px solid {{ headerLine }};backdrop-filter:{{ headerBlur }};transition:background .5s, border-color .5s">
+<header style="position:fixed;top:0;left:0;right:0;z-index:40;background:{{ headerBg }};border-bottom:1px solid {{ headerLine }};backdrop-filter:{{ headerBlur }};-webkit-backdrop-filter:{{ headerBlur }};transition:background .5s, border-color .5s">
+  <sc-if value="{{ compactNav }}" hint-placeholder-val="{{ false }}">
+    <div style="height:64px;padding:0 12px;display:grid;grid-template-columns:48px 1fr 48px;align-items:center">
+      <button onClick="{{ toggleMenu }}" aria-label="Menu" style="width:48px;height:48px;background:none;border:0;padding:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;color:#2A3540">
+        <span style="display:block;width:22px;height:1px;background:#2A3540;transition:transform .4s;transform:{{ burgerTop }}"></span>
+        <span style="display:block;width:22px;height:1px;background:#2A3540;transition:transform .4s;transform:{{ burgerBot }}"></span>
+      </button>
+      <a href="#top" onClick="{{ closeMenu }}" style="justify-self:center;font:300 24px/1 'Cormorant Garamond',serif;letter-spacing:.3em;padding-left:.3em;color:#2A3540">NUMION</a>
+      <button onClick="{{ openCart }}" aria-label="Shopping bag" style="width:48px;height:48px;background:none;border:0;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;color:#2A3540;font:400 11px/1 Inter,sans-serif">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M5 8h14l-1 13H6L5 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg>
+        <span>{{ cartBadge }}</span>
+      </button>
+    </div>
+  </sc-if>
+  <sc-if value="{{ fullNav }}" hint-placeholder-val="{{ true }}">
   <div style="max-width:1440px;margin:0 auto;padding:0 clamp(24px,4vw,56px);height:80px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px">
     <nav style="display:flex;gap:32px;flex-wrap:wrap;font:400 13px/1 Inter,sans-serif;letter-spacing:.04em">
       <a href="#ritual">The Ritual</a>
@@ -57,17 +71,57 @@ button{font-family:inherit}
       </button>
     </div>
   </div>
+  </sc-if>
 </header>
 
-<section id="top" data-screen-label="01 Hero" style="position:relative;width:100%;aspect-ratio:16/9;min-height:640px;max-height:100vh;overflow:hidden;background:#B5CBD8">
+<div aria-hidden="{{ menuHidden }}" style="position:fixed;inset:0;z-index:35;background:#F6F2EA;padding:112px 32px 48px;display:flex;flex-direction:column;justify-content:space-between;opacity:{{ menuOpacity }};pointer-events:{{ menuEvents }};transition:opacity .45s ease">
+  <nav style="display:flex;flex-direction:column">
+    <sc-for list="{{ menuLinks }}" as="m" hint-placeholder-count="5">
+      <a href="{{ m.href }}" onClick="{{ m.go }}" style="display:flex;justify-content:space-between;align-items:baseline;padding:20px 0;border-bottom:1px solid rgba(42,53,64,.12);font:300 34px/1 'Cormorant Garamond',serif;color:#2A3540"><span>{{ m.label }}</span><span style="font:300 14px/1 'Noto Serif KR',serif;color:#7C9BAE">{{ m.kr }}</span></a>
+    </sc-for>
+  </nav>
+  <div style="display:flex;flex-direction:column;gap:24px">
+    <div style="display:flex;align-items:center;gap:12px;font:400 13px/1 Inter,sans-serif;letter-spacing:.08em">
+      <button onClick="{{ setEN }}" style="background:none;border:0;padding:12px 0;cursor:pointer;font:inherit;letter-spacing:inherit;color:#2A3540;opacity:{{ enOpacity }}">EN</button>
+      <span style="color:#8A8578">·</span>
+      <button onClick="{{ setKR }}" style="background:none;border:0;padding:12px 0;cursor:pointer;font:inherit;letter-spacing:inherit;color:#2A3540;opacity:{{ krOpacity }}">KR</button>
+    </div>
+    <a href="mailto:info@thenumion.com" style="font:400 13px/1.6 Inter,sans-serif;color:#4A6578">info@thenumion.com</a>
+    <span style="font:300 italic 20px/1.3 'Cormorant Garamond',serif;color:#8C6F3A">Where new miracles awaken.</span>
+  </div>
+</div>
+
+<section id="top" data-screen-label="01 Hero" style="position:relative;width:100%;aspect-ratio:{{ heroAR }};height:{{ heroH }};min-height:{{ heroMin }};max-height:{{ heroMax }};overflow:hidden;background:#B5CBD8">
   <sc-for list="{{ scenes }}" as="sc" hint-placeholder-count="2">
     <div style="position:absolute;inset:0;opacity:{{ sc.opacity }};transition:opacity {{ sc.fade }} ease">
-      <img src="{{ sc.poster }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 50%">
-      <video ref="{{ sc.ref }}" data-src="{{ sc.video }}" poster="{{ sc.poster }}" muted="{{ true }}" playsInline="{{ true }}" preload="auto" onTimeUpdate="{{ sc.onTime }}" onEnded="{{ sc.onEnded }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 50%;transform:{{ sc.scale }};transition:transform 12s cubic-bezier(.2,.6,.2,1)"></video>
+      <img src="{{ sc.poster }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ sc.pos }}">
+      <video ref="{{ sc.ref }}" data-src="{{ sc.video }}" poster="{{ sc.poster }}" muted="{{ true }}" playsInline="{{ true }}" preload="auto" onTimeUpdate="{{ sc.onTime }}" onEnded="{{ sc.onEnded }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ sc.pos }};transform:{{ sc.scale }};transition:transform 12s cubic-bezier(.2,.6,.2,1)"></video>
     </div>
   </sc-for>
   <div style="position:absolute;inset:0;background:{{ heroVeil }};transition:background 1.2s"></div>
   <div style="position:absolute;left:0;right:0;bottom:0;height:160px;background:linear-gradient(180deg, rgba(246,242,234,0), rgba(246,242,234,.35))"></div>
+  <sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;left:0;right:0;bottom:0;padding:0 24px 28px;display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:center;gap:12px;font:500 10px/1 Inter,sans-serif;letter-spacing:.24em;color:#4A6578"><span style="width:20px;height:1px;background:#C9A96E"></span>THE AWAKENING LINE</div>
+      <h1 style="margin:0;font:300 clamp(42px,12vw,54px)/1 'Cormorant Garamond',serif;letter-spacing:.005em;color:#2A3540;text-wrap:balance">Where new miracles awaken.</h1>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <span style="font:300 italic 19px/1.3 'Cormorant Garamond',serif;color:#7A5F2E;text-wrap:balance">Numion Awakening PDRN + Exosome Serum</span>
+        <span style="font:300 13px/1.6 'Noto Serif KR',serif;color:#4A6578">깨어나는 美의 의식</span>
+      </div>
+      <a href="#serum" style="margin-top:4px;display:flex;justify-content:space-between;align-items:center;height:52px;padding:0 24px;background:#2A3540;color:#F6F2EA;font:400 13px/1 Inter,sans-serif;letter-spacing:.08em">Begin the Ritual <span>→</span></a>
+      <div style="margin-top:8px;display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;gap:6px">
+          <sc-for list="{{ indicators }}" as="sc" hint-placeholder-count="4">
+            <button onClick="{{ sc.go }}" aria-label="{{ sc.label }}" style="flex:1;height:24px;background:none;border:0;padding:0;cursor:pointer;display:flex;align-items:center">
+              <span style="display:block;width:100%;height:2px;background:rgba(42,53,64,.18);position:relative;overflow:hidden"><span style="position:absolute;inset:0;background:#2A3540;transform-origin:left;transform:{{ sc.progress }}"></span></span>
+            </button>
+          </sc-for>
+        </div>
+        <div style="display:flex;justify-content:space-between;gap:16px;font:500 10px/1 Inter,sans-serif;letter-spacing:.2em;color:#2A3540"><span>{{ sceneLabel }}</span><span style="color:#8C6F3A">{{ sceneCount }}</span></div>
+      </div>
+    </div>
+  </sc-if>
+  <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
   <div style="position:absolute;inset:0;padding:80px clamp(24px,4vw,56px) 0;display:flex;align-items:center">
     <div style="width:100%;max-width:1440px;margin:0 auto">
       <div style="max-width:min(560px,44%);min-width:300px;display:flex;flex-direction:column;gap:32px">
@@ -91,6 +145,7 @@ button{font-family:inherit}
       </sc-for>
     </div>
   </div>
+  </sc-if>
 </section>
 
 <section data-screen-label="02 Manifesto" style="padding:clamp(96px,13vw,192px) 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:32px;background:linear-gradient(180deg,#F6F2EA 0%,#F6F2EA 40%,#E8EEF2 100%)">
@@ -133,7 +188,7 @@ button{font-family:inherit}
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(16px,2vw,32px)">
       <sc-for list="{{ products }}" as="p" hint-placeholder-count="4">
-        <article onMouseEnter="{{ p.onEnter }}" onMouseLeave="{{ p.onLeave }}" style="display:flex;flex-direction:column;gap:24px">
+        <article ref="{{ p.aref }}" data-pid="{{ p.id }}" onMouseEnter="{{ p.onEnter }}" onMouseLeave="{{ p.onLeave }}" style="display:flex;flex-direction:column;gap:24px">
           <a href="#collection" style="position:relative;display:block;aspect-ratio:4/5;overflow:hidden;background:#E8EEF2">
             <img src="{{ p.img }}" alt="{{ p.fullName }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:{{ p.baseTransform }};transition:transform 1.4s cubic-bezier(.2,.7,.2,1)">
             <video ref="{{ p.vref }}" data-src="{{ p.video }}" poster="{{ p.hover }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;opacity:{{ p.hoverOpacity }};clip-path:{{ p.hoverClip }};transform:{{ p.hoverTransform }};transition:opacity .9s ease, clip-path 1s cubic-bezier(.7,0,.2,1), transform 2.4s cubic-bezier(.2,.7,.2,1)"></video>
@@ -350,7 +405,7 @@ button{font-family:inherit}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;cleanserPrice&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:42,&quot;min&quot;:0,&quot;max&quot;:500,&quot;unit&quot;:&quot;$&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;01 Rice + Centella Cleanser&quot;},&quot;cleanserSize&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;150 ml&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;01 Rice + Centella Cleanser&quot;},&quot;cleanserImage&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;cleanser-v2.jpg&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;01 Rice + Centella Cleanser&quot;},&quot;cleanserModelImage&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;cleanser-model-v3.jpg&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;01 Rice + Centella Cleanser&quot;},&quot;cleanserModelVideo&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;cleanser-model-v3.mp4&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;01 Rice + Centella Cleanser&quot;},&quot;serumPrice&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:95,&quot;min&quot;:0,&quot;max&quot;:500,&quot;unit&quot;:&quot;$&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;02 PDRN + Exosome Serum&quot;},&quot;serumSize&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;50 ml&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;02 PDRN + Exosome Serum&quot;},&quot;serumImage&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;serum.jpg&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;02 PDRN + Exosome Serum&quot;},&quot;serumModelImage&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;serum-model.jpg&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;02 PDRN + Exosome Serum&quot;},&quot;serumModelVideo&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;serum-model.mp4&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;02 PDRN + Exosome Serum&quot;},&quot;spfPrice&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:48,&quot;min&quot;:0,&quot;max&quot;:500,&quot;unit&quot;:&quot;$&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;03 SPF 50+ Day Veil&quot;},&quot;spfSize&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;50 ml&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;03 SPF 50+ Day Veil&quot;},&quot;spfImage&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;spf.jpg&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;03 SPF 50+ Day Veil&quot;},&quot;spfModelImage&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;spf-model.jpg&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;03 SPF 50+ Day Veil&quot;},&quot;spfModelVideo&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;spf-model.mp4&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;03 SPF 50+ Day Veil&quot;},&quot;creamPrice&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:68,&quot;min&quot;:0,&quot;max&quot;:500,&quot;unit&quot;:&quot;$&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;04 Ceramide Night Cream&quot;},&quot;creamSize&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;50 ml&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;04 Ceramide Night Cream&quot;},&quot;creamImage&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;cream-v2.jpg&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;04 Ceramide Night Cream&quot;},&quot;creamModelImage&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;cream-model-v2.jpg&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;04 Ceramide Night Cream&quot;},&quot;creamModelVideo&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;cream-model-v2.mp4&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;04 Ceramide Night Cream&quot;},&quot;hoverStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Crossfade&quot;,&quot;Slide up&quot;],&quot;default&quot;:&quot;Crossfade&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Layout&quot;},&quot;showTrustLine&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;}}">
 class Component extends DCLogic {
-  state = { scrolled: false, hovered: null, serumHover: false, cart: {}, cartOpen: false, lang: 'EN', videoOk: false, zoom: false, email: '', subscribed: false };
+  state = { vw: typeof window !== 'undefined' ? window.innerWidth : 1440, menuOpen: false, inView: {}, scrolled: false, hovered: null, serumHover: false, cart: {}, cartOpen: false, lang: 'EN', videoOk: false, zoom: false, email: '', subscribed: false };
   videoRef = React.createRef();
 
   products = [
@@ -364,6 +419,9 @@ class Component extends DCLogic {
     this.onScroll = () => { const s = window.scrollY > 40; if (s !== this.state.scrolled) this.setState({ scrolled: s }); };
     window.addEventListener('scroll', this.onScroll, { passive: true });
     this.onScroll();
+    this.onResize = () => { if (window.innerWidth !== this.state.vw) this.setState({ vw: window.innerWidth }); };
+    window.addEventListener('resize', this.onResize);
+    setTimeout(() => this.observeCards(), 300);
     document.querySelectorAll('video').forEach(v => { v.muted = true; });
     this.playScene(0);
     this.loadAllVideos();
@@ -396,14 +454,25 @@ class Component extends DCLogic {
     this.sceneTimer = setTimeout(() => { if (this.state.scene === i && this.state.progress === 0) this.playScene((i + 1) % this.heroScenes.length); }, 11000);
   }
   heroScenes = [
-    { n: '01', label: 'THE AWAKENING SERUM', video: 'hero-product-hd.mp4', poster: 'hero-product.jpg', ref: React.createRef() },
-    { n: '02', label: 'ÉVEIL · THE SERUM', video: 'hero-serum2-v2.mp4', poster: 'hero-serum2-v2.jpg', ref: React.createRef() },
-    { n: '03', label: 'AUBE · THE CLEANSE', video: 'hero-foam.mp4', poster: 'hero-foam-v2.jpg', ref: React.createRef() },
-    { n: '04', label: 'THE MORNING RITUAL', video: 'hero-serum3-v2.mp4', poster: 'hero-serum3-v2.jpg', ref: React.createRef() }
+    { n: '01', label: 'THE AWAKENING SERUM', mpos: '66% 50%', video: 'hero-product-hd.mp4', poster: 'hero-product.jpg', ref: React.createRef() },
+    { n: '02', label: 'ÉVEIL · THE SERUM', mpos: '70% 50%', video: 'hero-serum2-v2.mp4', poster: 'hero-serum2-v2.jpg', ref: React.createRef() },
+    { n: '03', label: 'AUBE · THE CLEANSE', mpos: '61% 50%', video: 'hero-foam.mp4', poster: 'hero-foam-v2.jpg', ref: React.createRef() },
+    { n: '04', label: 'THE MORNING RITUAL', mpos: '74% 50%', video: 'hero-serum3-v2.mp4', poster: 'hero-serum3-v2.jpg', ref: React.createRef() }
   ];
+  observeCards() {
+    if (!('IntersectionObserver' in window)) return;
+    this.io = new IntersectionObserver(entries => {
+      const iv = { ...this.state.inView };
+      entries.forEach(e => { const id = e.target.getAttribute('data-pid'); iv[id] = e.isIntersecting; const v = this.cardRef(id).current; if (!v || this.state.vw >= 1024) return; if (e.isIntersecting) this.safePlay(v); else v.pause(); });
+      this.setState({ inView: iv });
+    }, { threshold: 0.6 });
+    Object.values(this.articleRefs).forEach(r => r.current && this.io.observe(r.current));
+  }
+  articleRefs = {};
+  articleRef(id) { return this.articleRefs[id] || (this.articleRefs[id] = React.createRef()); }
   cardRefs = {};
   cardRef(id) { return this.cardRefs[id] || (this.cardRefs[id] = React.createRef()); }
-  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); clearTimeout(this.sceneTimer); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); if (this.io) this.io.disconnect(); window.removeEventListener('scroll', this.onScroll); clearTimeout(this.sceneTimer); }
 
   getProducts() {
     const P = this.props;
@@ -422,11 +491,13 @@ class Component extends DCLogic {
   renderVals() {
     const st = this.state;
     const slide = (this.props.hoverStyle ?? 'Crossfade') === 'Slide up';
-    const solid = st.scrolled || st.cartOpen;
+    const mobile = st.vw < 768, compact = st.vw < 1024;
+    const solid = st.scrolled || st.cartOpen || st.menuOpen;
+    const closeMenu = () => this.setState({ menuOpen: false });
     const fmt = n => '$' + n.toFixed(2).replace('.00', '');
     const PR = this.getProducts();
     const products = PR.map(p => {
-      const on = st.hovered === p.id;
+      const on = st.hovered === p.id || (compact && !!st.inView[p.id]);
       return {
         ...p,
         fullName: 'Numion Awakening ' + p.type,
@@ -438,6 +509,7 @@ class Component extends DCLogic {
         hoverTransform: on ? 'scale(1)' : 'scale(1.08)',
         lineScale: on ? 'scaleX(1)' : 'scaleX(0)',
         vref: this.cardRef(p.id),
+        aref: this.articleRef(p.id),
         onEnter: () => { this.setState({ hovered: p.id }); const v = this.cardRef(p.id).current; if (v) { try { v.currentTime = 0; } catch (e) {} this.safePlay(v); } },
         onLeave: () => { this.setState({ hovered: null }); const v = this.cardRef(p.id).current; if (v) setTimeout(() => { if (this.state.hovered !== p.id) v.pause(); }, 900); },
         add: () => this.add(p.id)
@@ -450,7 +522,20 @@ class Component extends DCLogic {
     const subtotal = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
     const cartCount = cartItems.reduce((a, c) => a + c.qty, 0);
     return {
-      headerBg: solid ? 'rgba(246,242,234,.94)' : 'rgba(246,242,234,0)',
+      mobile, desktop: !mobile, compactNav: compact, fullNav: !compact,
+      heroAR: mobile ? 'auto' : '16/9', heroH: mobile ? '100svh' : 'auto', heroMin: mobile ? '600px' : '640px', heroMax: mobile ? 'none' : '100vh',
+      sceneLabel: this.heroScenes[st.scene || 0].label,
+      sceneCount: this.heroScenes[st.scene || 0].n + ' / 0' + this.heroScenes.length,
+      cartBadge: cartCount ? String(cartCount) : '',
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu,
+      burgerTop: st.menuOpen ? 'translateY(4px) rotate(45deg)' : 'none',
+      burgerBot: st.menuOpen ? 'translateY(-4px) rotate(-45deg)' : 'none',
+      menuOpacity: st.menuOpen && compact ? 1 : 0,
+      menuEvents: st.menuOpen && compact ? 'auto' : 'none',
+      menuHidden: st.menuOpen && compact ? 'false' : 'true',
+      menuLinks: [['The Ritual', '#ritual', '의식'], ['Products', '#collection', '제품'], ['Ingredients', '#science', '성분'], ['Journal', '#journal', '저널'], ['Store', '#collection', '스토어']].map(([label, href, kr]) => ({ label, href, kr, go: closeMenu })),
+      headerBg: solid ? 'rgba(246,242,234,.94)' : (compact ? 'linear-gradient(180deg, rgba(246,242,234,.7), rgba(246,242,234,0))' : 'rgba(246,242,234,0)'),
       headerLine: solid ? 'rgba(42,53,64,.08)' : 'rgba(246,242,234,0)',
       headerBlur: solid ? 'blur(12px)' : 'none',
       enOpacity: st.lang === 'EN' ? 1 : .5, krOpacity: st.lang === 'KR' ? 1 : .5,
@@ -471,6 +556,7 @@ class Component extends DCLogic {
         const prog = on ? (st.progress || 0) : ((st.scene || 0) > i ? 1 : 0);
         return {
           ...s,
+          pos: mobile ? s.mpos : '70% 50%',
           opacity: on ? 1 : 0,
           fade: (s.sub || (this.heroScenes[i + 1] && this.heroScenes[i + 1].sub && (st.scene || 0) === i + 1)) ? '.25s' : '1.6s',
           scale: 'none',
@@ -484,8 +570,8 @@ class Component extends DCLogic {
       serumEnter: () => this.setState({ serumHover: true }),
       serumLeave: () => this.setState({ serumHover: false }),
       serumImgScale: st.serumHover ? 'scale(1.04)' : 'scale(1)',
-      heroVeil: false
-        ? 'linear-gradient(90deg, rgba(246,242,234,.9) 0%, rgba(246,242,234,.55) 24%, rgba(246,242,234,0) 34%)'
+      heroVeil: mobile
+        ? 'linear-gradient(180deg, rgba(246,242,234,.35) 0%, rgba(246,242,234,0) 14%, rgba(246,242,234,0) 36%, rgba(246,242,234,.78) 56%, rgba(246,242,234,.95) 72%, #F6F2EA 100%)'
         : 'linear-gradient(90deg, rgba(246,242,234,.88) 0%, rgba(246,242,234,.62) 28%, rgba(246,242,234,0) 50%)',
       serumPriceLine: fmt(PR[1].price) + ' · ' + PR[1].size,
       serumCta: st.cart.serum ? 'Added to your ritual' : 'Add to ritual',
@@ -518,7 +604,7 @@ class Component extends DCLogic {
         { title: 'CONTACT', links: ['info@thenumion.com', 'Private consultation', 'Shipping & returns'] }
       ],
       addSerum: () => this.add('serum'),
-      openCart: () => this.setState({ cartOpen: true }),
+      openCart: () => this.setState({ cartOpen: true, menuOpen: false }),
       closeCart: () => this.setState({ cartOpen: false }),
       overlayOpacity: st.cartOpen ? 1 : 0,
       overlayEvents: st.cartOpen ? 'auto' : 'none',
