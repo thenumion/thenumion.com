@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thenumion.com/sitemap.xml
