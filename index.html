@@ -437,17 +437,14 @@ class Component extends DCLogic {
     const url = v && v.getAttribute('data-src');
     if (!url || v.dataset.loaded) return Promise.resolve();
     v.dataset.loaded = '1';
-    const p = this.blobCache[url] || (this.blobCache[url] = fetch(url).then(r => r.blob()).then(b => URL.createObjectURL(b)).catch(() => url));
-    return p.then(src => { v.src = src; v.load(); });
+    v.src = url; v.load();
+    return new Promise(res => { const done = () => res(); v.addEventListener('canplay', done, { once: true }); v.addEventListener('error', done, { once: true }); setTimeout(done, 4000); });
   }
   async loadAllVideos() {
     const all = [...document.querySelectorAll('video[data-src]')];
     const hero = this.heroScenes.map(s => s.ref.current).filter(Boolean);
-    for (const v of hero) {
-      await this.loadVideo(v);
-      const i = hero.indexOf(v);
-      if ((this.state.scene || 0) === i) this.playScene(i);
-    }
+    if (hero[0]) { this.loadVideo(hero[0]); this.safePlay(hero[0]); }
+    for (const v of hero.slice(1)) { v.preload = 'auto'; await this.loadVideo(v); }
     for (const v of all) { if (hero.includes(v)) continue; await this.loadVideo(v); if (v.autoplay || v.hasAttribute('autoplay')) this.safePlay(v); }
   }
   safePlay(v) { if (!v) return; v.muted = true; const r = v.play && v.play(); if (r && r.catch) r.catch(() => {}); }
@@ -460,10 +457,10 @@ class Component extends DCLogic {
     this.sceneTimer = setTimeout(() => { if (this.state.scene === i && this.state.progress === 0) this.playScene((i + 1) % this.heroScenes.length); }, 11000);
   }
   heroScenes = [
-    { n: '01', label: 'THE AWAKENING SERUM', mpos: '66% 50%', video: 'hero-product-hd.mp4', poster: 'hero-product.jpg', ref: React.createRef() },
-    { n: '02', label: 'ÉVEIL · THE SERUM', mpos: '70% 50%', video: 'hero-serum2-v2.mp4', poster: 'hero-serum2-v2.jpg', ref: React.createRef() },
-    { n: '03', label: 'AUBE · THE CLEANSE', mpos: '61% 50%', cut: { at: 6.3, shift: '22%', mpos: '42% 50%' }, video: 'hero-foam.mp4', poster: 'hero-foam-v2.jpg', ref: React.createRef() },
-    { n: '04', label: 'THE MORNING RITUAL', mpos: '74% 50%', video: 'hero-serum3-v2.mp4', poster: 'hero-serum3-v2.jpg', ref: React.createRef() }
+    { n: '01', label: 'THE AWAKENING SERUM', mpos: '66% 50%', video: 'hero-product-1080.mp4', poster: 'hero-product.jpg', ref: React.createRef() },
+    { n: '02', label: 'ÉVEIL · THE SERUM', mpos: '70% 50%', video: 'hero-serum2-1080.mp4', poster: 'hero-serum2-v2.jpg', ref: React.createRef() },
+    { n: '03', label: 'AUBE · THE CLEANSE', mpos: '61% 50%', video: 'hero-foam-1080.mp4', poster: 'hero-foam-v2.jpg', ref: React.createRef() },
+    { n: '04', label: 'THE MORNING RITUAL', mpos: '74% 50%', video: 'hero-serum3-1080.mp4', poster: 'hero-serum3-v2.jpg', ref: React.createRef() }
   ];
   observeCards() {
     if (!('IntersectionObserver' in window)) return;
